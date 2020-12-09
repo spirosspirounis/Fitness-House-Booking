@@ -52,7 +52,7 @@ class Items{
 		$this->class = htmlspecialchars(strip_tags($this->class));
 		$this->class = htmlspecialchars(strip_tags($this->class));
 	 
-		$stmt->bind_param("ssis", $this->class, $this->class, $this->id);
+		$stmt->bind_param("ssi", $this->class, $this->class, $this->id);
 		
 		if($stmt->execute()){
 			return true;
