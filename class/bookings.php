@@ -50,25 +50,28 @@ class Items{
 		return false;		 
 	}
 		
-	// function update(){
+	function update(){
 	 
-	// 	$stmt = $this->conn->prepare("
-	// 		UPDATE ".$this->booksTable." 
-	// 		SET name= ?, time = ?, size = ? WHERE id = ?");
+		$stmt = $this->conn->prepare("
+			UPDATE ".$this->booksTable." 
+			SET class= ?, date = ?, time = ?, username = ?, email = ?, phone_number = ? WHERE id = ?");
 	 
-	// 	$this->id = htmlspecialchars(strip_tags($this->id));
-	// 	$this->name = htmlspecialchars(strip_tags($this->name));
-	// 	$this->time = htmlspecialchars(strip_tags($this->time));
-	// 	$this->size = htmlspecialchars(strip_tags($this->size));
+		$this->id = htmlspecialchars(strip_tags($this->id));
+		$this->class = htmlspecialchars(strip_tags($this->class));
+		$this->date = htmlspecialchars(strip_tags($this->date));
+		$this->time = htmlspecialchars(strip_tags($this->time));
+		$this->username = htmlspecialchars(strip_tags($this->username));
+		$this->email = htmlspecialchars(strip_tags($this->email));
+		$this->phone_number = htmlspecialchars(strip_tags($this->phone_number));
 	 
-	// 	$stmt->bind_param("ssis", $this->name, $this->time, $this->size, $this->id);
+		$stmt->bind_param("ssssss", $this->class, $this->date, $this->time, $this->username, $this->email, $this->phone_number, $this->id);
 		
-	// 	if($stmt->execute()){
-	// 		return true;
-	// 	}
+		if($stmt->execute()){
+			return true;
+		}
 	 
-	// 	return false;
-	// }
+		return false;
+	}
 	
 	// function delete(){
 		
