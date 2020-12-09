@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../config/Database.php';
-include_once '../class/Items.php';
+include_once '../class/badDates.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -21,9 +21,8 @@ if($result->num_rows > 0){
         extract($item); 
         $itemDetails=array(
             "id" => $id,
-            "name" => $name,
-            "time" => $time,
-            "size" => $size
+            "class" => $class,
+            "baddates" => $baddates,
         ); 
        array_push($itemRecords["items"], $itemDetails);
     }    

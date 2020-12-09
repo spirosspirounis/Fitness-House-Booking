@@ -11,17 +11,17 @@ class Items{
         $this->conn = $db;
     }	
 	
-	// function read(){	
-	// 	if($this->id) {
-	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable." WHERE id = ?");
-	// 		$stmt->bind_param("i", $this->id);					
-	// 	} else {
-	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable);		
-	// 	}		
-	// 	$stmt->execute();			
-	// 	$result = $stmt->get_result();		
-	// 	return $result;	
-	// }
+	function read(){	
+		if($this->id) {
+			$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable." WHERE id = ?");
+			$stmt->bind_param("i", $this->id);					
+		} else {
+			$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable);		
+		}		
+		$stmt->execute();			
+		$result = $stmt->get_result();		
+		return $result;	
+	}
 	
 	function create(){
 		
