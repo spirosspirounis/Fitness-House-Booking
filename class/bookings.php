@@ -64,7 +64,7 @@ class Items{
 		$this->email = htmlspecialchars(strip_tags($this->email));
 		$this->phone_number = htmlspecialchars(strip_tags($this->phone_number));
 	 
-		$stmt->bind_param("ssssss", $this->class, $this->date, $this->time, $this->username, $this->email, $this->phone_number, $this->id);
+		$stmt->bind_param("ssssssi", $this->class, $this->date, $this->time, $this->username, $this->email, $this->phone_number, $this->id);
 		
 		if($stmt->execute()){
 			return true;
