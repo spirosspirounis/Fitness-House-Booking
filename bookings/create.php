@@ -11,21 +11,21 @@ include_once '../class/bookings.php';
 $database = new Database();
 $db = $database->getConnection();
  
-$items = new Books($db);
+$books = new Books($db);
  
 $data = json_decode(file_get_contents("php://input"));
 
 if(!empty($data->class) && !empty($data->date) &&
 !empty($data->time) && !empty($data->username) && !empty($data->email) && !empty($data->phone_number)){    
 
-    $items->class = $data->class;
-    $items->date = $data->date;
-    $items->time = $data->time;
-    $items->username = $data->username;
-    $items->email = $data->email;
-    $items->phone_number = $data->phone_number;
+    $books->class = $data->class;
+    $books->date = $data->date;
+    $books->time = $data->time;
+    $books->username = $data->username;
+    $books->email = $data->email;
+    $books->phone_number = $data->phone_number;
     
-    if($items->create()){         
+    if($books->create()){         
         http_response_code(201);         
         echo json_encode(array("message" => "Item was created."));
     } else{         
