@@ -42,25 +42,24 @@ class Items{
 		return false;		 
 	}
 		
-	// function update(){
+	function update(){
 	 
-	// 	$stmt = $this->conn->prepare("
-	// 		UPDATE ".$this->baddatesTable." 
-	// 		SET name= ?, time = ?, size = ? WHERE id = ?");
+		$stmt = $this->conn->prepare("
+			UPDATE ".$this->baddatesTable." 
+			SET class= ?, baddates = ? WHERE id = ?");
 	 
-	// 	$this->id = htmlspecialchars(strip_tags($this->id));
-	// 	$this->name = htmlspecialchars(strip_tags($this->name));
-	// 	$this->time = htmlspecialchars(strip_tags($this->time));
-	// 	$this->size = htmlspecialchars(strip_tags($this->size));
+		$this->id = htmlspecialchars(strip_tags($this->id));
+		$this->class = htmlspecialchars(strip_tags($this->class));
+		$this->class = htmlspecialchars(strip_tags($this->class));
 	 
-	// 	$stmt->bind_param("ssis", $this->name, $this->time, $this->size, $this->id);
+		$stmt->bind_param("ssis", $this->class, $this->class, $this->id);
 		
-	// 	if($stmt->execute()){
-	// 		return true;
-	// 	}
+		if($stmt->execute()){
+			return true;
+		}
 	 
-	// 	return false;
-	// }
+		return false;
+	}
 	
 	// function delete(){
 		

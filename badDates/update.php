@@ -6,7 +6,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 include_once '../config/Database.php';
-include_once '../class/Items.php';
+include_once '../class/badDates.php';
  
 $database = new Database();
 $db = $database->getConnection();
@@ -15,13 +15,12 @@ $items = new Items($db);
  
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->id) && !empty($data->name) && 
-!empty($data->time) && !empty($data->size)){ 
+if(!empty($data->id) && !empty($data->class) && 
+!empty($data->baddates)){ 
 	
 	$items->id = $data->id; 
-	$items->name = $data->name;
-    $items->time = $data->time;
-    $items->size = $data->size;
+	$items->class = $data->class;
+    $items->baddates = $data->baddates;
 	
 	if($items->update()){     
 		http_response_code(200);   
