@@ -8,11 +8,11 @@ include_once '../class/bookings.php';
 $database = new Database();
 $db = $database->getConnection();
  
-$books = new Books($db);
+$items = new Items($db);
 
-$books->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+$items->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
-$result = $books->read();
+$result = $items->read();
 
 if($result->num_rows > 0){    
     $itemRecords=array();

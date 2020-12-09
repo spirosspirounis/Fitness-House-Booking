@@ -1,5 +1,5 @@
 <?php
-class Books{   
+class Items{   
     
     private $booksTable = "bookings";      
     public $id;
