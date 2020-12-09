@@ -15,13 +15,16 @@ $items = new Items($db);
  
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->id) && !empty($data->name) && 
-!empty($data->time) && !empty($data->size)){ 
+if(!empty($data->id) && !empty($data->class) && !empty($data->date) &&
+!empty($data->time) && !empty($data->username) && !empty($data->email) && !empty($data->phone_number)){ 
 	
 	$items->id = $data->id; 
-	$items->name = $data->name;
-    $items->time = $data->time;
-    $items->size = $data->size;
+	$items->class = $data->class;
+    $items->date = $data->date;
+	$items->time = $data->time;
+	$items->username = $data->username;
+    $items->email = $data->email;
+    $items->phone_number = $data->phone_number;
 	
 	if($items->update()){     
 		http_response_code(200);   
