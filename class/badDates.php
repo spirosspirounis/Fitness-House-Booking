@@ -1,7 +1,7 @@
 <?php
 class Items{   
     
-    private $itemsTable = "badDates";      
+    private $baddatesTable = "badDates";      
     public $id;
 	public $class;
 	public $baddates;
@@ -13,10 +13,10 @@ class Items{
 	
 	// function read(){	
 	// 	if($this->id) {
-	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->itemsTable." WHERE id = ?");
+	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable." WHERE id = ?");
 	// 		$stmt->bind_param("i", $this->id);					
 	// 	} else {
-	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->itemsTable);		
+	// 		$stmt = $this->conn->prepare("SELECT * FROM ".$this->baddatesTable);		
 	// 	}		
 	// 	$stmt->execute();			
 	// 	$result = $stmt->get_result();		
@@ -26,7 +26,7 @@ class Items{
 	function create(){
 		
 		$stmt = $this->conn->prepare("
-			INSERT INTO ".$this->itemsTable."(`class`, `baddates`)
+			INSERT INTO ".$this->baddatesTable."(`class`, `baddates`)
 			VALUES(?,?)");
 		
 		$this->class = htmlspecialchars(strip_tags($this->class));
@@ -45,7 +45,7 @@ class Items{
 	// function update(){
 	 
 	// 	$stmt = $this->conn->prepare("
-	// 		UPDATE ".$this->itemsTable." 
+	// 		UPDATE ".$this->baddatesTable." 
 	// 		SET name= ?, time = ?, size = ? WHERE id = ?");
 	 
 	// 	$this->id = htmlspecialchars(strip_tags($this->id));
@@ -65,7 +65,7 @@ class Items{
 	// function delete(){
 		
 	// 	$stmt = $this->conn->prepare("
-	// 		DELETE FROM ".$this->itemsTable." 
+	// 		DELETE FROM ".$this->baddatesTable." 
 	// 		WHERE id = ?");
 			
 	// 	$this->id = htmlspecialchars(strip_tags($this->id));
