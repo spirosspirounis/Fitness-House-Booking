@@ -15,10 +15,10 @@ $items = new Items($db);
  
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->class) && !empty($data->badates)){    
+if(!empty($data->class) && !empty($data->baddates)){    
 
     $items->class = $data->class;
-    $items->badates = $data->badates;
+    $items->baddates = $data->baddates;
     
     if($items->create()){         
         http_response_code(201);         
