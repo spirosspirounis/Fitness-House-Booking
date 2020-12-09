@@ -50,9 +50,9 @@ class Items{
 	 
 		$this->id = htmlspecialchars(strip_tags($this->id));
 		$this->class = htmlspecialchars(strip_tags($this->class));
-		$this->class = htmlspecialchars(strip_tags($this->class));
+		$this->baddates = htmlspecialchars(strip_tags($this->baddates));
 	 
-		$stmt->bind_param("ssi", $this->class, $this->class, $this->id);
+		$stmt->bind_param("ssi", $this->class, $this->baddates, $this->id);
 		
 		if($stmt->execute()){
 			return true;
