@@ -23,7 +23,8 @@ if($result->num_rows > 0){
             "id" => $id,
             "name" => $name,
             "time" => $time,
-            "size" => $size
+            "size" => $size,
+            "disabled_date" => $disabled_date
         ); 
        array_push($itemRecords["items"], $itemDetails);
     }    

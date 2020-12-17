@@ -16,11 +16,12 @@ $items = new Items($db);
 $data = json_decode(file_get_contents("php://input"));
 
 if(!empty($data->name) && !empty($data->time) &&
-!empty($data->size)){    
+!empty($data->size) && !empty($data->disabled_date)){    
 
     $items->name = $data->name;
     $items->time = $data->time;
     $items->size = $data->size;
+    $items->disabled_date = $data->disabled_date;
     
     if($items->create()){         
         http_response_code(201);         

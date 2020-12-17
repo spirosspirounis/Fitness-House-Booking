@@ -5,7 +5,8 @@ class Items{
     public $id;
     public $name;
     public $time;
-    public $size;
+	public $size;
+	public $disabled_date;
     private $conn;
 	
     public function __construct($db){
@@ -27,15 +28,16 @@ class Items{
 	function create(){
 		
 		$stmt = $this->conn->prepare("
-			INSERT INTO ".$this->itemsTable."(`name`, `time`, `size`)
-			VALUES(?,?,?)");
+			INSERT INTO ".$this->itemsTable."(`name`, `time`, `size`, `disabled_date`)
+			VALUES(?,?,?,?)");
 		
 		$this->name = htmlspecialchars(strip_tags($this->name));
 		$this->time = htmlspecialchars(strip_tags($this->time));
 		$this->size = htmlspecialchars(strip_tags($this->size));
+		$this->disabled_date = htmlspecialchars(strip_tags($this->disabled_date));
 		
 		
-		$stmt->bind_param("sss", $this->name, $this->time, $this->size);
+		$stmt->bind_param("ssis", $this->name, $this->time, $this->size, $this->disabled_date);
 		
 		if($stmt->execute()){
 			return true;
@@ -48,14 +50,15 @@ class Items{
 	 
 		$stmt = $this->conn->prepare("
 			UPDATE ".$this->itemsTable." 
-			SET name= ?, time = ?, size = ? WHERE id = ?");
+			SET name= ?, time = ?, size = ?, disabled_date = ? WHERE id = ?");
 	 
 		$this->id = htmlspecialchars(strip_tags($this->id));
 		$this->name = htmlspecialchars(strip_tags($this->name));
 		$this->time = htmlspecialchars(strip_tags($this->time));
 		$this->size = htmlspecialchars(strip_tags($this->size));
+		$this->disabled_date = htmlspecialchars(strip_tags($this->disabled_date));
 	 
-		$stmt->bind_param("ssis", $this->name, $this->time, $this->size, $this->id);
+		$stmt->bind_param("ssisi", $this->name, $this->time, $this->size, $this->disabled_date, $this->id);
 		
 		if($stmt->execute()){
 			return true;
