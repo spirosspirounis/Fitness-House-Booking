@@ -20,6 +20,7 @@ if($result->num_rows > 0){
 	while ($item = $result->fetch_assoc()) { 	
         extract($item); 
         $itemDetails=array(
+            "id" => $id,
             "class" => $class,
             "date" => $date,
             "time" => $time,
